@@ -1,113 +1,260 @@
+import React from "react";
 import Image from "next/image";
+import SearchIcon from "@/assets/search.png";
+import ArrowIcon from "@/assets/arrow.png";
+import Icon from "@/assets/icon.png";
+import MainComponent from "@/components/maincomponent";
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <MainComponent
+      para="Invoice list"
+      firstcomp={
+        <div className="xl:w-full lg:bg-white lg:w-[425px] w-full  rounded-[10px] py-5">
+          <div className="flex items-center justify-between px-7 xs:px-0">
+            <div className="rounded-lg bg-[#F8F8F8] xl:w-[310px] lg:w-[180px] w-[310px] flex items-center space-x-3 xs:w-[178.32px] xs:space-x-2">
+              <input
+                type="text"
+                placeholder="Search by patient name"
+                className="outline-none h-[35px] bg-transparent xl:w-[255px] lg:w-[130px] w-[255px] text-[10px] pl-5 xs:text-[5.75px] xs:w-[140px] xs:h-[20.13px] xs:pl-3"
+              />
+              <div className="border-[1px] h-[16px] xs:h-[9.2px]"></div>
+
+              <Image className="w-[10px] h-[10px]" src={SearchIcon} alt="" />
+            </div>
+            <div className="bg-[#F8F8F8] sm:w-[159px] h-[35px] rounded-lg flex items-center justify-center xs:px-2 ">
+              <p className="text-[10px] xs:text-[5.75px]">Select Date:</p>
+              <div className="border-[1px] h-[16px] ml-3 mr-2"></div>
+
+              <p className="text-[10px] xs:text-[5.75px] flex items-center gap-2">
+                20 Aug{" "}
+                <span className="cursor-pointer xs:w-[5.75px] xs:h-[2.88px]">
+                  {" "}
+                  <Image src={ArrowIcon} alt="" />
+                </span>
+              </p>
+            </div>
+          </div>
+          <hr className="mt-3 h-[2px] bg-[#4C4D4F33]/20" />
+          <div className="lg:border-[1px] border-[#4C4D4F33]/20 rounded-[14px] mt-10 mx-7 overflow-hidden xs:mt-5 xs:mx-0">
+            <table className="border-collapse   overflow-hidden w-full text-[10px] xs:text-[5.75px]">
+              <thead className=" text-left">
+                <tr className="bg-white">
+                  <th className=" pl-5 py-3">Patient</th>
+                  <th className=" pl-5 py-3">Time</th>
+                  <th className=" pl-5 py-3">Date</th>
+                  <th className=" pl-5 py-3">Total</th>
+                  <th className=" text-right pr-[65px] py-3">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="lg:bg-[#F8F8F8]">
+                  <td className=" pl-5 py-3">John Doe</td>
+                  <td className=" pl-5 py-3">09:00 - 10:30</td>
+                  <td className=" pl-5 py-3">22/08/2023</td>
+                  <td className=" pl-5 py-3">$180</td>
+                  <td className="flex flex-col items-end  pr-5 py-3">
+                    <p className="bg-[#F1B34A] text-white text-center w-[75px] rounded-full py-1 ">
+                      In Progress
+                    </p>
+                  </td>
+                </tr>
+                <tr className="lg:bg-[#F8F8F8] border-t-[2px]">
+                  <td className=" pl-5 py-3">John Doe</td>
+                  <td className=" pl-5 py-3">09:00 - 10:30</td>
+                  <td className=" pl-5 py-3">22/08/2023</td>
+                  <td className=" pl-5 py-3">$180</td>
+                  <td className="flex flex-col items-end  pr-5 py-3">
+                    <p className="bg-[#36C490] text-white text-center w-[75px] rounded-full py-1 ">
+                      Complete
+                    </p>
+                  </td>
+                </tr>
+                <tr className="lg:bg-[#F8F8F8] border-t-[2px]">
+                  <td className=" pl-5 py-3">John Doe</td>
+                  <td className=" pl-5 py-3">09:00 - 10:30</td>
+                  <td className=" pl-5 py-3">22/08/2023</td>
+                  <td className=" pl-5 py-3">$180</td>
+                  <td className="flex flex-col items-end  pr-5 py-3">
+                    <p className="bg-[#FFF9F1] text-center w-[75px] rounded-full py-1 ">
+                      Cenceled
+                    </p>
+                  </td>
+                </tr>
+                <tr className="lg:bg-[#F8F8F8] border-t-[2px]">
+                  <td className=" pl-5 py-3">John Doe</td>
+                  <td className=" pl-5 py-3">09:00 - 10:30</td>
+                  <td className=" pl-5 py-3">22/08/2023</td>
+                  <td className=" pl-5 py-3">$180</td>
+                  <td className="flex flex-col items-end  pr-5 py-3">
+                    <p className="bg-[#36C490] text-white text-center w-[75px] rounded-full py-1 ">
+                      Complete
+                    </p>
+                  </td>
+                </tr>
+                <tr className="lg:bg-[#F8F8F8] border-t-[2px]">
+                  <td className=" pl-5 py-3">John Doe</td>
+                  <td className=" pl-5 py-3">09:00 - 10:30</td>
+                  <td className=" pl-5 py-3">22/08/2023</td>
+                  <td className=" pl-5 py-3">$180</td>
+                  <td className="flex flex-col items-end  pr-5 py-3">
+                    <p className="bg-[#36C490] text-white text-center w-[75px] rounded-full py-1 ">
+                      Complete
+                    </p>
+                  </td>
+                </tr>{" "}
+                <tr className="bg-white border-t-[2px]">
+                  <td className=" pl-5 py-3">John Doe</td>
+                  <td className=" pl-5 py-3">09:00 - 10:30</td>
+                  <td className=" pl-5 py-3">22/08/2023</td>
+                  <td className=" pl-5 py-3">$180</td>
+                  <td className="flex flex-col items-end  pr-5 py-3">
+                    <p className="bg-[#36C490] text-white text-center w-[75px] rounded-full py-1 ">
+                      Complete
+                    </p>
+                  </td>
+                </tr>{" "}
+                <tr className="lg:bg-[#F8F8F8] border-t-[2px]">
+                  <td className=" pl-5 py-3">John Doe</td>
+                  <td className=" pl-5 py-3">09:00 - 10:30</td>
+                  <td className=" pl-5 py-3">22/08/2023</td>
+                  <td className=" pl-5 py-3">$180</td>
+                  <td className="flex flex-col items-end  pr-5 py-3">
+                    <p className="bg-[#36C490] text-white text-center w-[75px] rounded-full py-1 ">
+                      Complete
+                    </p>
+                  </td>
+                </tr>{" "}
+                <tr className="lg:bg-[#F8F8F8] border-t-[2px]">
+                  <td className=" pl-5 py-3">John Doe</td>
+                  <td className=" pl-5 py-3">09:00 - 10:30</td>
+                  <td className=" pl-5 py-3">22/08/2023</td>
+                  <td className=" pl-5 py-3">$180</td>
+                  <td className="flex flex-col items-end  pr-5 py-3">
+                    <p className="bg-[#36C490] text-white text-center w-[75px] rounded-full py-1 ">
+                      Complete
+                    </p>
+                  </td>
+                </tr>{" "}
+                <tr className="lg:bg-[#F8F8F8] border-t-[2px]">
+                  <td className=" pl-5 py-3">John Doe</td>
+                  <td className=" pl-5 py-3">09:00 - 10:30</td>
+                  <td className=" pl-5 py-3">22/08/2023</td>
+                  <td className=" pl-5 py-3">$180</td>
+                  <td className="flex flex-col items-end  pr-5 py-3">
+                    <p className="bg-[#36C490] text-white text-center w-[75px] rounded-full py-1 ">
+                      Complete
+                    </p>
+                  </td>
+                </tr>{" "}
+                <tr className="lg:bg-[#F8F8F8] border-t-[2px] border-b-[2px]">
+                  <td className=" pl-5 py-3">John Doe</td>
+                  <td className=" pl-5 py-3">09:00 - 10:30</td>
+                  <td className=" pl-5 py-3">22/08/2023</td>
+                  <td className=" pl-5 py-3">$180</td>
+                  <td className="flex flex-col items-end  pr-5 py-3">
+                    <p className="bg-[#36C490] text-white text-center w-[75px] rounded-full py-1 ">
+                      Complete
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="text-center lg:bg-[#F8F8F8] pt-2 pb-4 text-sm text-[#4C4D4F] underline xs:text-[8.05px]">
+              View &nbsp; more
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      }
+      secondcomp={
+        <div className="bg-white lg:w-[377px] md:w-[690px] w-full rounded-[10px] px-4 pt-4 lg:pb-[72px] pb-60">
+          <div className="flex items-center justify-between">
+            <p className="lg:text-sm md:text-[27.74px] xs:text-[14.97px]">
+              Preview Invoice
+            </p>
+            <div className="lg:w-[38px] lg:h-[38px] bg-[#F8F8F8] flex items-center justify-center rounded-lg md:w-[75.29px] md:h-[75.29px] xs:w-[40.62px] xs:h-[42.62px]">
+              <Image src={Icon} alt="" />
+            </div>
+          </div>
+          <div className="border border-[#4C4D4F33]/20 mt-5 rounded-[10px] p-4">
+            <Image
+              width={90.67}
+              height={16}
+              className="lg:w-[90.67px] lg:h-[16px] md:w-[179.65px] md:h-[31.7px] xs:w-[96.92px] xs:h-[17.1px]"
+              src="/logo.png"
+              alt=""
+            />
+            <div className="flex lg:text-[10px] items-center gap-1 mt-5 md:text-[19.81px] xs:text-[10.69px]">
+              SUMMERY <hr className="w-full" />
+            </div>
+            <div className="lg:text-xs flex space-x-14 mt-6 md:text-[23.78px] xs:text-[12.83px]">
+              <p>Dr. Vihang</p>
+              <p>Jane Doe</p>
+            </div>
+            <div className="border-[1px] border-[#4C4D4F33]/20 rounded-[5px] overflow-hidden mt-7 lg:w-[305px]">
+              {" "}
+              <table className="border-collapse   overflow-hidden w-full lg:text-[10px] md:text-[19.81px] xs:text-[10.69px]">
+                <thead className=" text-left bg-black text-white">
+                  <tr className="">
+                    <th className=" pl-3 py-4">item</th>
+                    <th className="  py-4">Rate</th>
+                    <th className="  py-4">Qty</th>
+                    <th className="  py-4">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="">
+                    <td className=" pl-2 py-3">Vitamin A Night Serum</td>
+                    <td className="  py-2">$90</td>
+                    <td className="  py-2">2</td>
+                    <td className="  py-2">$180</td>
+                  </tr>
+                  <tr className="">
+                    <td className=" pl-3 py-2">Vitamin A Night Serum</td>
+                    <td className="  py-2">$90</td>
+                    <td className="  py-2">2</td>
+                    <td className="  py-2">$180</td>
+                  </tr>
+                  <tr className="">
+                    <td className=" pl-3 py-2">Vitamin A Night Serum</td>
+                    <td className="  py-2">$90</td>
+                    <td className="  py-2">2</td>
+                    <td className="  py-2">$180</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="flex lg:text-[10px] md:text-[19.81px] space-x-10 mt-2 justify-end px-2 xs:text-[10.69px]">
+              <div>
+                <p className="font-medium">Subtotal</p>
+                <p className="text-[#4C4D4F80]/40">tax 5%</p>
+                <p className="text-[#4C4D4F80]/40">Discount 10%</p>
+              </div>
+              <div>
+                <p className="font-medium">$540.00</p>
+                <p className="text-[#4C4D4F80]/40">$00.00</p>
+                <p className="text-[#4C4D4F80]/40">$00.00</p>
+              </div>
+            </div>
+            <hr className="mt-2 " />
+            <div className="lg:text-[10px] md:text-[19.81px] flex space-x-10 justify-end mt-3 px-2 xs:text-[10.69px]">
+              <p className="font-semibold">total</p>
+              <p className="font-semibold">$540.00</p>
+            </div>
+            <div className="bg-[#F8F8F8] lg:text-[10px] md:text-[19.81px] p-4 mt-4 xs:text-[10.69px]">
+              <h5>Notes/Terms</h5>
+              <p className="text-[#00000080]/30">
+                Lorem ipsum dolor sit amet. Sit eaque assumenda qui.
+              </p>
+            </div>
+          </div>
+          <button className="text-white bg-black text-sm rounded-full text-center lg:flex hidden justify-center items-center mt-10 w-[184px] h-[48px] mx-auto">
+            Create New Invoice
+          </button>
+        </div>
+      }
+    />
   );
-}
+};
+
+export default Home;
